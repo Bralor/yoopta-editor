@@ -1,15 +1,17 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import YooptaEditor, { createYooptaEditor } from '@yoopta/editor';
 import Paragraph from '@yoopta/paragraph';
 import Blockquote from '@yoopta/blockquote';
 import { deserializeMarkdown } from './markdownUtils';
 import { serializeToHTML } from './htmlUtils';
+import './index.css';
 
 
 const plugins = [Paragraph, Blockquote];
 
 const Editor = () => {
     const editor = useMemo(() => createYooptaEditor(), []);
+    const [htmlOutput, setHtmlOutput] = useState('');
 
 
     const handleSerializerHTMLString = () => {
@@ -21,6 +23,7 @@ const Editor = () => {
 
         // Serializujeme deserializovaný obsah jako HTML string
         const htmlString = serializeToHTML(editor);
+        setHtmlOutput(htmlString)
     }
 
     return (
@@ -30,6 +33,12 @@ const Editor = () => {
             </button>
 
             <YooptaEditor editor={editor} plugins={plugins} />
+        {htmlOutput && (
+            <div>
+                <h2>HTML Output</h2>
+                <pre>{htmlOutput}</pre>
+            </div>
+            )}
         </div>
     );
 };
