@@ -1,0 +1,31 @@
+/* Základní styly pro resetování výchozích stylů */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Styl pro celé tělo stránky */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Kontejner aplikace */
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Záhlaví aplikace */
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+/* Styl pro hlavní obsah */
+main {
+  margin-top: 20px;
+}
