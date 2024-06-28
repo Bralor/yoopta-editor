@@ -1,10 +1,9 @@
 import { useMemo } from 'react';
 import { html } from '@yoopta/exports';
-import { markdown } from '@yoopta/exports';
 import { marked } from 'marked';
 import { createYooptaEditor } from '@yoopta/editor';
-//import { deserializeHTML } from '../html/deserialize';
 import { readFile, writeFile } from 'fs/promises';
+import { DOMParser } from 'xmldom';
 
 
 const Editor = () => {
@@ -31,25 +30,19 @@ const writeMDContent = async(filePath, fileContent) => {
         }
     }
 
-const myDeserializeHTML = (htmlContent) => {
-    const yooptaObject = html.deserialize(Editor, htmlContent)
-    console.log(yooptaObject)
-    return yooptaObject;
-}
-
-export const deserializeMarkdown = (markdownString) => {
+const deserializeMarkdown = (markdownString) => {
     const html = marked.parse(markdownString, { gfm: true, breaks: true, pedantic: false });
     console.log(html)
     return html;
 };
 
 const processMDFiles = async () => {
-    const filePath = 'testMd.md';
+    const filePath = 'attempt_1.md';
     const newFilePath = 'test_file.md';
     try {
         const contentMD = await readMDContent(filePath);
         const deserializedHtml = deserializeMarkdown(contentMD)
-        //const deserializedYoopta = deserializeHTML(deserializedHtml)
+        // const deserializedYoopta = deserializeeHTML(Editor, deserializedHtml)
         await writeMDContent(newFilePath, deserializedHtml);
     } catch (error) {
         console.error('Test failed:', error);
