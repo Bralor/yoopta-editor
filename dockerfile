@@ -1,25 +1,20 @@
-# Použijeme základní obraz s Node.js
 FROM node:18
 
 # Nastavíme pracovní adresář
 WORKDIR /app
 
+# Kopie prerekvizit
+COPY package.json .
+COPY yarn.lock .
+
 # Nainstalujeme závislosti
-RUN yarn add express serve @babel/core react react-scripts react-dom slate \
-    slate-react @yoopta/editor @yoopta/paragraph @yoopta/blockquote \
-    @yoopta/exports @babel/plugin-proposal-private-property-in-object
+#RUN yarn add express serve @babel/core react react-scripts react-dom slate \
+    #slate-react @yoopta/editor @yoopta/paragraph @yoopta/blockquote fs \
+    #@yoopta/exports @babel/plugin-proposal-private-property-in-object
+RUN yarn install
 
 # Zkopírujeme zbytek aplikace do pracovního adresáře
 COPY . .
 
-# Sestavíme aplikaci pro produkční prostředí
-RUN yarn build
-
-# Nainstalujeme sloužící server
-RUN yarn global add serve
-
-# Exponujeme port
-EXPOSE 5002
-
-# Definujeme příkaz, který bude spuštěn při startu kontejneru
-CMD ["serve", "-s", "build", "-l", "5002"]
+# Spusť endpoint
+CMD ["/bin/sh"]
