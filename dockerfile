@@ -8,9 +8,11 @@ COPY package.json .
 COPY yarn.lock .
 
 # Nainstalujeme závislosti
-#RUN yarn add express serve @babel/core react react-scripts react-dom slate \
-    #slate-react @yoopta/editor @yoopta/paragraph @yoopta/blockquote fs \
-    #@yoopta/exports @babel/plugin-proposal-private-property-in-object
+#RUN yarn init -y
+#RUN yarn add xmldom express serve @babel/core react react-scripts react-dom slate \
+#    slate-react @yoopta/editor @yoopta/paragraph @yoopta/blockquote fs \
+#    @yoopta/exports @babel/plugin-proposal-private-property-in-object \
+#    xmldom
 RUN yarn install
 
 # Zkopírujeme zbytek aplikace do pracovního adresáře
