@@ -1,0 +1,24 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@yoopta/blockquote": "^4.6.0",
+    "@yoopta/editor": "^4.6.0",
+    "@yoopta/exports": "^4.6.0",
+    "@yoopta/paragraph": "^4.6.0",
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "^5.0.1",
+    "serve": "^14.2.3",
+    "slate": "^0.103.0",
+    "slate-react": "^0.106.0",
+    "xmldom": "^0.6.0"
+  }
+}
