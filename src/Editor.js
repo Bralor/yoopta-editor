@@ -22,8 +22,8 @@ const Editor = () => {
         editor.setEditorValue(deserializedContent);
 
         // Serializujeme deserializovaný obsah jako HTML string
-        const htmlString = serializeToHTML(editor);
-        setHtmlOutput(htmlString)
+        // const htmlString = serializeToHTML(editor);
+        // setHtmlOutput(htmlString)
     }
 
     return (
