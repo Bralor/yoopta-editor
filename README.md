@@ -20,8 +20,5 @@ $ node src/App.js
 
 you should find the exported HTML file:
 ```bash
-$ cat test_file.
+$ cat test_file.html
 ```
-
-
-
