@@ -44,7 +44,7 @@ const deserializeMarkdown = (markdownString) => {
 
 const processMDFiles = async () => {
     const filePath = 'attempt_1.md';
-    const newFilePath = 'test_file.md';
+    const newFilePath = 'test_file.html';
     try {
         const contentMD = await readMDContent(filePath);
         const deserializedHtml = deserializeMarkdown(contentMD)
