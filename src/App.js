@@ -6,9 +6,9 @@ import { readFile, writeFile } from 'fs/promises';
 import { DOMParser } from 'xmldom';
 
 
-const Editor = () => {
-    const editor = useMemo(() => createYooptaEditor(), [])
-}
+//const Editor = () => {
+//    const editor = useMemo(() => createYooptaEditor(), []);
+//}
 
 const readMDContent = async (filePath) => {
     try {
@@ -36,13 +36,19 @@ const deserializeMarkdown = (markdownString) => {
     return html;
 };
 
+//const deserializeHTML = (editor, currentHtml) => {
+//    const yooptaContent = html.deserialize(editor, currentHtml);
+//    console.log(yooptaContent)
+//    return yooptaContent;
+//}
+
 const processMDFiles = async () => {
     const filePath = 'attempt_1.md';
     const newFilePath = 'test_file.md';
     try {
         const contentMD = await readMDContent(filePath);
         const deserializedHtml = deserializeMarkdown(contentMD)
-        // const deserializedYoopta = deserializeeHTML(Editor, deserializedHtml)
+        // Issue #1: const deserializedYoopta = deserializeHTML(Editor, deserializedHtml)
         await writeMDContent(newFilePath, deserializedHtml);
     } catch (error) {
         console.error('Test failed:', error);
