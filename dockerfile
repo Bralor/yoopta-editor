@@ -17,6 +17,3 @@ RUN yarn install
 
 # Zkopírujeme zbytek aplikace do pracovního adresáře
 COPY . .
-
-# Spusť endpoint
-CMD ["/bin/sh"]
